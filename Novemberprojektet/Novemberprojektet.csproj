@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Angory.cs" />
+    <Compile Include="Laazy.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Smort.cs" />
+    <Compile Include="Tamagotchi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
