@@ -16,6 +16,7 @@ namespace Novemberprojektet
         protected List<string> words = new List<string>();
         static protected List<Tamagotchi> tamagotchiList = new List<Tamagotchi>();
         public string name = " ";
+        protected int ticks = 0;
 
         // statisk lista med alla tamagotchis
 
@@ -79,6 +80,7 @@ namespace Novemberprojektet
                 i++;
             }
         }
+
         private void ReduceBoredom()
         {
             TickAll();
@@ -86,5 +88,7 @@ namespace Novemberprojektet
             Console.WriteLine(name + " now has a bordedom of " + boredom + "/10.");
         }
         
+
+
     }
 }
