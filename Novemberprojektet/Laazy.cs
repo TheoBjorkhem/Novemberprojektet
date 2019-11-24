@@ -14,7 +14,7 @@ namespace Novemberprojektet
         //Metoder
         private void Tick()
         {
-            hunger = hunger - 2;
+            hunger = hunger - 3;
             boredom = boredom + 1;
         }
 

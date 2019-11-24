@@ -29,8 +29,10 @@ namespace Novemberprojektet
         public void Hi()
         {
             TickAll();
-            int i = generator.Next(0, tamagotchiList.Count);
-            Console.WriteLine(name + ": " + tamagotchiList[i] + ".");
+            int i = generator.Next(0, words.Count);
+            Console.WriteLine(name + ": " + words[i] + ".");
+            ReduceBoredom();
+
         }
         public void Feed()
         {
@@ -40,16 +42,18 @@ namespace Novemberprojektet
             {
                 hunger = 10;
             }
-            Console.WriteLine("You feed " + name + ". It's now has " + hunger + "/10.");
+            Console.WriteLine("You feed " + name + ". It's now has " + hunger + "/10 filled stomach.");
         }
         public void Teach()
         {
             Console.WriteLine("You decided to teach " + name + " a word. What will it be?");
             string e = Console.ReadLine();
             words.Add(e);
+            TickAll();
         }
         public void PrintStats()
         {
+            isAlive = GetAlive();
             if (isAlive == true)
             {
                 Console.WriteLine("Hunger: " + hunger + "/10 \nBoredom: " + boredom + "/10 \n" + name + " is alive.");
@@ -61,16 +65,23 @@ namespace Novemberprojektet
         }
         public bool GetAlive()
         {
-
+            if (boredom < 9 && hunger > 0)
+            {
+                isAlive = true;
+            }
+            else
+            {
+                isAlive = false;
+            }
 
             return isAlive;
         }
         private void Tick()
         {
-            hunger = hunger - 1;
-            boredom = boredom + 1;
+            hunger = hunger - 2;
+            boredom = boredom + 2;
         }
-        private void TickAll()
+        public void TickAll()
         {
             // Gå igenom alla, gör nedanstående med dem
             int i = 0;
@@ -88,7 +99,5 @@ namespace Novemberprojektet
             Console.WriteLine(name + " now has a bordedom of " + boredom + "/10.");
         }
         
-
-
     }
 }
